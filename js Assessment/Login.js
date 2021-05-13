@@ -61,7 +61,7 @@ $(document).ready(function () {
             else {
                 alert("Username or Password do not match!");
             }
-
+            //regexp validation for email
             if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(form.mail.value)) {
                 return (true)
             }
