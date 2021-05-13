@@ -1,0 +1,33 @@
+<html>
+
+<head>
+     <link rel="stylesheet" href="Login.css">
+<body>
+    <h1>Create New Customer Account</h1>
+
+    <h2>personal Information</h2>
+    <hr>
+
+    <form id="details" onsubmit="signup(event)">
+        <div>
+            First Name<input type="text" id="firstname" required><br><br>
+            Last Name<input type="text" id="lastname" required><br><br>
+            <input type="checkbox">Sign up for Newsletter
+        </div>
+        <h2>Sign-in Information</h2>
+        <hr>
+        <div>
+            Email<input type="text" id="email" required><br><br>
+            password<input type="password" id="password" required><br><br>
+            confirm password<input type="password" id="Confirmpassword" required><br><br>
+        </div>
+
+        <button type="submit" id="sub" onclick="validate()">Create an Account</button>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="Login.js"></script>
+       
+    </form>
+</body>
+</head>
+
+</html>

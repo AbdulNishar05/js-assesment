@@ -1,0 +1,16 @@
+body
+{
+    font-family: 'Arial';
+    margin: 10mm; 
+}
+#submit
+{
+    background-color: rgb(106, 137, 236);
+}
+#div
+{
+    border:  solid black;
+    width: max-content;
+    border-color:red ;
+    padding-bottom: 5px;;
+}
