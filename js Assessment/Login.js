@@ -72,7 +72,6 @@ $(document).ready(function () {
         else {
             alert("data does not exist in local storage")
         }
-
     });
 
     $("#change").click(function () {
@@ -94,6 +93,5 @@ $(document).ready(function () {
         }
         else
             alert("error")
-
     })
 });
