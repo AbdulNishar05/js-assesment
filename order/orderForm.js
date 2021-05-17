@@ -111,7 +111,6 @@ $(document).ready(function () {
                         if (i == j) { continue; }
                         if (data == words[j]) {
                             $("#words").text(data);
-                            console.log("repeated in " + data);
                             return;
                         }
                     }
