@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="orderForm.css">
+
+<body>
+    <form id="form"></form>
+    <div id="table-head">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Repeated Characters</th>
+                    <th style="width: 250px;">second largest number</th>
+                    <th style="width: 150px;">fibanocci</th>
+                    <th style="width: 100px;">duplicte</th>
+                </tr>
+            </thead>
+        </table>
+        <div id="fields" class="fields">
+            <input type="text" id="char-id1" required>
+            <input type="number" min=0 id="large-id1" required>
+            <input type="number" min=0 id="fib-id1" required>
+            <input type="number" min=0 id="dup-id1" required>
+        </div>
+    </div>
+    <div id="tablee-body">
+        <button type='button' id="add">Add</button>
+        <button type='submit' id="submit">submit</button>
+        <button type='button' id="clear">Reset</button>
+
+    </div>
+    <div id="table-footer">
+        <table id="table1">
+            <thead>
+                <tr>
+                    <th>Repeated Characters</th>
+                    <th>second largest number</th>
+                    <th>fibanocci</th>
+                    <th>duplicte</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td id="words"></td>
+                    <td id="large"></td>
+                    <td id="fib"></td>
+                    <td id="dup"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="orderForm.js"></script>
+
+
+
+</body>
+</head>
+
+</html>
