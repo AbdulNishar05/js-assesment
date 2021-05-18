@@ -52,7 +52,7 @@ $(document).ready(function () {
     });
 
     $("#submit").click(function () {
-        if (rows.length < 5) {
+        if ($(".row").length < 5) {
             alert("add rows");
             return false
         }
@@ -92,8 +92,8 @@ $(document).ready(function () {
                 var result = [];
                 for (var i = 0; i < dup.length - 1; i++) {
                     for (var j = i + 1; j < dup.length; j++) {
-                        if (dup[i] == dup[j] && result.indexOf(dup[i]) == -1) {
-                            result = (dup[i]);
+                        if (dup[i] == dup[j]) {
+                            result.push(dup[i]);
                         }
                     }
                 }
