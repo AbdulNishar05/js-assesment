@@ -52,7 +52,7 @@ $(document).ready(function () {
     });
 
     $("#submit").click(function () {
-        if ($(".row").length <= 5) {
+        if ($(".row").length <= 3) {
             alert("add rows");
             return false
         }
