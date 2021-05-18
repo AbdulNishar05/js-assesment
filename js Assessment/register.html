@@ -1,7 +1,8 @@
 <html>
 
 <head>
-     <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="Login.css">
+
 <body>
     <h1>Create New Customer Account</h1>
 
@@ -18,14 +19,16 @@
         <hr>
         <div>
             Email<input type="text" id="email" required><br><br>
-            password<input type="password" id="password" required><br><br>
-            confirm password<input type="password" id="Confirmpassword" required><br><br>
+            password<input type="password" id="password" name="password" required><br><br>
+            confirm password<input type="password" id="Confirmpassword" name="password" required><br><br>
+            <input type="checkbox" id="checkbox" onclick="Showpass()">Show password
+            <input type="checkbox" id="checkbox" onclick="Showconfirm()">Show Confirm password
         </div>
 
         <button type="submit" id="sub" onclick="validate()">Create an Account</button>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="Login.js"></script>
-       
+
     </form>
 </body>
 </head>
