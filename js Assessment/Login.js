@@ -1,24 +1,23 @@
 function Show() {
     var showText = document.getElementById("pwd");
-    if (showText.type == "password") {
-        showText.type = "text";
-    } else {
-        showText.type = "password";
-    }
+    showText.type = (showText.type === 'password') ? 'text' : 'password';
 }
 
 function validate() {
     var password1 = document.getElementById("password").value;
     var confirmPassword1 = document.getElementById("Confirmpassword").value;
-    if (password1.length >= 8) {
-        if (password1 == confirmPassword1) {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(details.email.value)) {
+        if (password1.length >= 8 && password1 === confirmPassword1) {
             window.location.href = "Account.html"
         }
-        else
-            alert("error");
+        else {
+            alert("error in password")
+        }
     }
-    else
+    else {
         alert("error")
+    }
+
 }
 
 function signup(event) {
@@ -31,6 +30,7 @@ function signup(event) {
     }
     localStorage.setItem("data", JSON.stringify(data))
     event.preventDefault();
+
 }
 
 function dispData() {
@@ -41,12 +41,27 @@ function dispData() {
         " </td></tr><tr><td>lastname</td><td> " + lastname +
         " </td></tr><tr><td>email</td><td> " + email +
         " </td></tr><tr><td>password</td><td>" + password +
-        "</td</tr><tr> <td>Confirmpassword</td><td> " + Confirmpassword +
+        "</td</tr><tr><td>Confirmpassword</td><td> " + Confirmpassword +
         " </td></tr></tbody></table>"
 }
 
+function Showpass() {
+    var showText = document.getElementById("password");
+    showText.type = (showText.type === 'password') ? 'text' : 'password';
+}
+
+function Showconfirm() {
+    var showText = document.getElementById("Confirmpassword");
+    showText.type = (showText.type === 'password') ? 'text' : 'password';
+}
+
+function login() {
+    window.location.href = "Login.html"
+}
+
 $(document).ready(function () {
-    $("#submit").click(function () {
+    $("#form").submit(function (event) {
+        event.preventDefault();
 
         var enteredName = $("#mail").val();
         var enteredPass = $("#pwd").val();
@@ -58,20 +73,17 @@ $(document).ready(function () {
                 window.location.href = "Account.html"
                 alert("Logging in")
             }
-            else {
-                alert("Username or Password do not match!");
-            }
+            var pwd = document.getElementById("pwd").value
             //regexp validation for email
-            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(form.mail.value)) {
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(form.mail.value) && pwd.length >= 8) {
                 return (true)
             }
             else {
-                alert("error in mail Id!")
+                alert("error in mail Id or password!")
             }
         }
-        else {
-            alert("data does not exist in local storage")
-        }
+        else
+            alert('invalid account')
     });
 
     $("#change").click(function () {
@@ -82,10 +94,11 @@ $(document).ready(function () {
             if (newpassword == cpassword) {
                 var data = { firstname, lastname, email, password, Confirmpassword } = JSON.parse(localStorage.getItem("data"));
                 if (oldpassword == data.password) {
-                    console.log(data);
                     data.password = newpassword;
-                    data.Confirmpassword = newpassword
-                    console.log(data)
+                    data.Confirmpassword = newpassword;
+                    localStorage.setItem("data", JSON.stringify(data))
+                    alert('password is updated')
+                    login();
                 }
             }
             else
@@ -93,5 +106,5 @@ $(document).ready(function () {
         }
         else
             alert("error")
-    })
+    });
 });
