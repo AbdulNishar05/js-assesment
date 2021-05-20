@@ -14,10 +14,6 @@ function validate() {
             alert("error in password")
         }
     }
-    else {
-        alert("error")
-    }
-
 }
 
 function signup(event) {
@@ -102,9 +98,9 @@ $(document).ready(function () {
                 }
             }
             else
-                alert("error");
+                alert("error in password");
         }
         else
-            alert("error")
+            alert("error in password")
     });
 });
