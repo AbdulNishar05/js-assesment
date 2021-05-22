@@ -1,10 +1,14 @@
 $(document).ready(function () {
-    var count = 1;
+    var count=1;
     var rows = [1];
     var displayTable = false;
     var table = $('#table1');
     var tableBody = $("#table-body")
     var tableBody = $('#table-body');
+    var words;
+        var large;
+        var fib;
+        var dup;
     if (displayTable) {
         table.css('display', 'block');
     } else {
@@ -22,17 +26,22 @@ $(document).ready(function () {
         div = div + row;
         div = div + '</div>'
         head.append(div);
+        console.log(count);
+        console.log("rows value:"+rows);
     })
 
     $(document).on('click', '.del-btn', function (event) {
         let id = $(event.currentTarget).val();
         var removeDivID = "#order-row-" + id;
         $(removeDivID).remove();
+        rows.splice(id-1,1);
+        console.log(count)
+        console.log("rows value:"+rows);
     });
 
     $('#clear').click(function () {
         for (let i = 0; i < rows.length; i++) {
-            $("#order-row-" + rows[i]).remove();
+            $("#order-row-" +rows[i]).remove();
         }
         rows = [1];
         table.css('display', 'none');
@@ -62,24 +71,27 @@ $(document).ready(function () {
             return false
         }
 
-        var words = [];
-        var large = [];
-        var fib = [];
-        var dup = [];
-        for (let i = 1, j = 0; i <= rows.length; i++, j++) {
-            words[j] = $('#char-id' + i).val();
-            large[j] = parseInt($('#large-id' + i).val());
-            fib[j] = $('#fib-id' + i).val();
-            dup[j] = $("#dup-id" + i).val();
+         words = [];
+         large = [];
+         fib = [];
+         dup = [];
+        console.log(rows.length);
+        for (let i = 0, j = 0; i <rows.length; i++, j++) {
+            words[i] = $('#char-id' + rows[i]).val();
+            large[i] = parseInt($('#large-id' + rows[i]).val());
+            fib[i] = parseInt($('#fib-id' + rows[i]).val());
+            dup[i] = parseInt($("#dup-id" + rows[i]).val());
             if (words[j] == "" || large[j] == "" || fib[j] == "" || dup[j] == "") {
                 alert("fill the box")
                 return false
             }
         }
+      
         function largest(large) {
             var temp, size;
             size = large.length;
-            for (var i = 0; i < size; i++) {
+            console.log(size);
+            for (var i = 0; i < size-1; i++) {
                 for (var j = i + 1; j < size; j++) {
 
                     if (large[i] > large[j]) {
@@ -102,11 +114,13 @@ $(document).ready(function () {
                 for (let j = i + 1; j < dup.length; j++) {
                     if (dup[i] == dup[j]) {
                         dup[j] = '0';
+                        console.log(dup[i])
                         count = 0;
                     }
                 }
                 if (count == 1) {
                     dup[i] = '0';
+                    console.log(dup[i])
                 }
             }
             dup[dup.length - 1] = '0';
@@ -121,13 +135,14 @@ $(document).ready(function () {
 
         function Repeated(words) {
             let obj = new Set();
-            for (let i = 0; i <= words.length - 1; i++) {
+            for (let i = 0; i <= words.length; i++) {
                 let char = words[i];
                 if (obj.has(char))
                     return char;
                 else
                     obj.add(char);
             }
+            return '\0';
         }
         $("#words").text(Repeated(words));
 
