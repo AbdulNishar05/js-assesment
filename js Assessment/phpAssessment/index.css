@@ -1,0 +1,14 @@
+.table1{
+    height: 500px;
+	width: 1000px;
+    
+}
+.prod{
+    height: 150px;
+    border-style: solid;
+    border-width: thick;    
+}
+
+a{
+    text-align: center;
+}
